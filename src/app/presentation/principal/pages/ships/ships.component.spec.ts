@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ShipsService } from 'src/app/services/ships.service';
+import { ShipsService } from 'src/app/core/services/ships.service';
 
 import { ShipsComponent } from './ships.component';
 
 
 
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 describe('ShipsComponent', () => {
   let component: ShipsComponent;
