@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PaginationModel } from 'src/app/core/models/pagination.models';
+import { ShipModel } from 'src/app/core/models/ships.models';
 declare var $: any;
 
 
@@ -9,8 +11,8 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  @Input() dataList: any;
-  config: any;
+  @Input() dataList: ShipModel[];
+  config: PaginationModel;
   shipId: string = '';
   url: string = '';
   // Modal

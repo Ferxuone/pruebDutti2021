@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShipModel, ShipResponseModel } from 'src/app/core/models/ships.models';
 import { ShipsService } from 'src/app/core/services/ships.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { ShipsService } from 'src/app/core/services/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  public dataList: ShipModel[] = [];
 
   constructor( private shipsService: ShipsService) {}
 
   ngOnInit(): void {
-    this.shipsService.getShips().subscribe((ships) => {
-      this.dataList = ships;
-      console.log('SHIPS -->', this.dataList.results)
+    this.shipsService.getShips().subscribe((ships: ShipResponseModel) => {
+      this.dataList = ships.results;
+      console.log('SHIPS -->', this.dataList)
     })
   }
 }

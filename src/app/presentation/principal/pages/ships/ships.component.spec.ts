@@ -7,6 +7,7 @@ import { ShipsComponent } from './ships.component';
 
 
 import { BehaviorSubject } from 'rxjs';
+import { ShipModel } from 'src/app/core/models/ships.models';
 
 describe('ShipsComponent', () => {
   let component: ShipsComponent;
@@ -22,7 +23,7 @@ describe('ShipsComponent', () => {
     template: '<p>Mock Ship Details</p>'
   })
   class MockShipDetails {
-    @Input() dataList:any;
+    @Input() dataList: ShipModel[];
   }
 
   beforeEach(waitForAsync(() => {
