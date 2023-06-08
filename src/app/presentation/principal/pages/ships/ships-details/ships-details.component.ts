@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaginationModel } from 'src/app/core/models/pagination.models';
 import { ShipModel } from 'src/app/core/models/ships.models';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 declare var $: any;
 
 
@@ -11,7 +13,7 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  @Input() dataList: ShipModel[];
+  ships$: Observable<ShipModel[]>;
   config: PaginationModel;
   shipId: string = '';
   url: string = '';
@@ -20,15 +22,25 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
+  constructor(
+    private store: Store<{ships: ShipModel[]}>
+  ) {
+    this.ships$ = this.store.select('ships');
   }
   
   ngOnInit(): void {
-      this.config = {
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.dataList.length
-      };
+    this.ships$.subscribe(
+      (ships: ShipModel[]) => {
+        console.log(ships)
+        if (ships) {
+          this.config = {
+            itemsPerPage: 5,
+            currentPage: 1,
+            totalItems: ships.length
+          };
+        }
+      }
+    );
   }
 
   getStarshipId(url) {
