@@ -67,6 +67,11 @@
             <!-- <a routerLink="/" class="btn btn-link">Cancel</a> -->
             <button type="button" class="btn buttons__register" routerLink="/">Cancelar</button>
         </div>
+        <div class="input-group-append" *ngIf="registered">
+            <span class="colorInvalid">
+                <i>Registered user</i>
+            </span>
+        </div>
     </form>
 </div>
 

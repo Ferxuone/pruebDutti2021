@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipModel, ShipResponseModel } from 'src/app/core/models/ships.models';
-import { ShipsService } from 'src/app/core/services/ships.service';
+import { ShipsService } from 'src/app/core/services/ships/ships.service';
 
 @Component({
   selector: 'app-ships',
