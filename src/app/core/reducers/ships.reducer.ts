@@ -5,7 +5,7 @@ export const initialState = [];
 
 const _shipsReducer = createReducer(
   initialState,
-  on(setListInStore, (state, { ships }) => ([...state, ...ships]))
+  on(setListInStore, (state, { ships }) => ([...ships]))
 )
 
 export function shipsReducer(state, action) {

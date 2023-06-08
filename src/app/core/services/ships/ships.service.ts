@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { expand, takeWhile, map } from 'rxjs/operators';
 import { ShipResponseModel } from '../../models/ships.models';
 
 @Injectable({
@@ -21,8 +21,19 @@ export class ShipsService {
   constructor( private http: HttpClient ) {}
 
   getShips(): Observable<ShipResponseModel>{
-    return this.http.get(this.url).pipe( 
-      map( (data: ShipResponseModel) => { return data })
-      );
+    return this.http.get(this.url).pipe(
+      expand((data: ShipResponseModel) => {
+        this.url = data.next;
+        return this.http.get(this.url).pipe(
+          map((newData: ShipResponseModel) => ({...newData, results: [...data.results, ...newData.results]}))
+        );
+      }),
+      takeWhile((data: ShipResponseModel) => (data.next !== null), true),
+      map((data: ShipResponseModel) => { return data })
+    );
+  }
+
+  getShipList() {
+    this.getShips();
   }
 }

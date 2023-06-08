@@ -31,7 +31,6 @@ export class ShipsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.ships$.subscribe(
       (ships: ShipModel[]) => {
-        console.log(ships)
         if (ships) {
           this.config = {
             itemsPerPage: 5,
