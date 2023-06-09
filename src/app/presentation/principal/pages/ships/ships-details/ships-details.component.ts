@@ -42,10 +42,10 @@ export class ShipsDetailsComponent implements OnInit {
     );
   }
 
-  getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+  getStarshipImage(url: string) {
+    this.shipId = url.slice(0, -1);
+    const urlImage = `https://starwars-visualguide.com/assets/img/starships/${this.shipId.split('/').pop()}.jpg`;
+    return urlImage;
   }
 
   pageChanged(event){
