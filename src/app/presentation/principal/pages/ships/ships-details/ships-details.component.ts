@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PaginationModel } from 'src/app/core/models/pagination.models';
-import { ShipModel } from 'src/app/core/models/ships.models';
+import { ShipResponseModel } from 'src/app/core/models/ships.models';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { setListInStore } from 'src/app/core/actions/ships.actions';
+import { ShipsService } from 'src/app/core/services/ships/ships.service';
 declare var $: any;
 
 
@@ -13,7 +15,7 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  ships$: Observable<ShipModel[]>;
+  shipsPage$: Observable<ShipResponseModel>;
   config: PaginationModel;
   shipId: string = '';
   url: string = '';
@@ -23,20 +25,22 @@ export class ShipsDetailsComponent implements OnInit {
   starship_class: string = '';
 
   constructor(
-    private store: Store<{ships: ShipModel[]}>
+    private store: Store<{ships: ShipResponseModel}>,
+    private shipsService: ShipsService
   ) {
-    this.ships$ = this.store.select('ships');
+    this.shipsPage$ = this.store.select('ships');
   }
   
   ngOnInit(): void {
-    this.ships$.subscribe(
-      (ships: ShipModel[]) => {
-        if (ships) {
-          this.config = {
-            itemsPerPage: 5,
-            currentPage: 1,
-            totalItems: ships.length
-          };
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1,
+      totalItems: 0
+    };
+    this.shipsPage$.subscribe(
+      (shipsPage: ShipResponseModel) => {
+        if (shipsPage) {
+          this.config.totalItems = shipsPage.count;
         }
       }
     );
@@ -49,6 +53,11 @@ export class ShipsDetailsComponent implements OnInit {
   }
 
   pageChanged(event){
+    this.shipsService.getShips(event).subscribe(
+      (shipsPage: ShipResponseModel) => {
+        this.store.dispatch(setListInStore({shipsPage: shipsPage}));
+      }
+    );
     this.config.currentPage = event;
   }
 

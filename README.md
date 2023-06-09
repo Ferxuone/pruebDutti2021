@@ -35,4 +35,5 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
-
+- Para el apartado 7, se ha implementado que solo se obtengan del servidor los datos de la página seleccionada puesto que si el usuario no cambia de página se estarían realizando llamadas innecesarias a servidor y almacenando información que el usuario no va a visualizar en ningún momento si no cambia de página. Con esto reducimos el número de llamadas al servidor y en un momento de concurrencia de usuarios podemos liberar de saturación al servidor.
+- Otra posible mejora sería reducir el modelo de datos de las naves que devuelve la llamada para liberar de sobrecarga de información la llamada.
