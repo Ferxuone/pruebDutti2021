@@ -30,9 +30,8 @@ export class AuthService {
         localStorage.setItem('users', JSON.stringify(usersList));
         localStorage.setItem('currentUser', user.username); /* Autologin */
         return of(true);
-      } else {
-        return of(false);
       }
+      return of(false);
     }
   }
 

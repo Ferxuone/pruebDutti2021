@@ -1,13 +1,15 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-
 import { ShipsDetailsComponent } from './ships-details.component';
-import { PaginationControlsComponent } from 'ngx-pagination';
 import { Component, Pipe, PipeTransform } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { ShipModel } from 'src/app/core/models/ships.models';
 
 describe('ShipsDetailsComponent', () => {
   let component: ShipsDetailsComponent;
   let fixture: ComponentFixture<ShipsDetailsComponent>;
+  let store: MockStore<{ships: ShipModel[]}>;
+  const initialState = {ships: []};
 
   @Component({
     selector: 'pagination-controls',
@@ -24,16 +26,18 @@ describe('ShipsDetailsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      declarations: [ ShipsDetailsComponent, MockPaginationControls, MockPipe ]
+      declarations: [ ShipsDetailsComponent, MockPaginationControls, MockPipe ],
+      providers: [
+        provideMockStore({ initialState })
+      ]
     })
     .compileComponents();
+    store = TestBed.get<Store>(Store);
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ShipsDetailsComponent);
     component = fixture.componentInstance;
-    component.dataList = {};
     fixture.detectChanges();
   });
 
