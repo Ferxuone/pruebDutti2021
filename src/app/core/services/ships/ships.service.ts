@@ -9,15 +9,15 @@ import { ShipResponseModel } from '../../models/ships.models';
 })
 export class ShipsService {
 
-  url: string = 'https://swapi.dev/api/starships/'
+  url = 'https://swapi.dev/api/starships/';
   headerDict = {
-    'Authorization': 'none',
+    Authorization: 'none',
     'Access-Control-Allow-Origin': '*'
-  }
-  requestOptions = {                                                                                                                                                                                 
-    headers: new HttpHeaders(this.headerDict), 
   };
-  
+  requestOptions = {
+    headers: new HttpHeaders(this.headerDict),
+  };
+
   constructor( private http: HttpClient ) {}
 
   getShips(page?: string): Observable<ShipResponseModel>{
@@ -29,7 +29,7 @@ export class ShipsService {
         );
       }),
       takeWhile((data: ShipResponseModel) => (data.next !== null), true), */
-      map((data: ShipResponseModel) => { return data })
+      map((data: ShipResponseModel) => data)
     );
   }
 

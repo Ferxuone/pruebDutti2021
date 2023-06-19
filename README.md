@@ -37,3 +37,13 @@ Navigate to `http://localhost:4200/`.
 
 - Para el apartado 7, se ha implementado que solo se obtengan del servidor los datos de la página seleccionada puesto que si el usuario no cambia de página se estarían realizando llamadas innecesarias a servidor y almacenando información que el usuario no va a visualizar en ningún momento si no cambia de página. Con esto reducimos el número de llamadas al servidor y en un momento de concurrencia de usuarios podemos liberar de saturación al servidor.
 - Otra posible mejora sería reducir el modelo de datos de las naves que devuelve la llamada para liberar de sobrecarga de información la llamada.
+- Se ha realizado una revisión para mejorar el rendimiento de la aplicación y solucionar errores de consistencia de la aplicación a través de la implementación de buenas prácticas de programación.
+- Se ha implementado 'trackby strategy' para el ngFor que recorre el listado de las naves, con esta implementación evitamos que el ngFor vuelva a renderizar los items que ya estuviesen visualizándose antes de refrescar la información del listado de naves.
+- Se han declarado constantes numéricas para evitar los 'magic numbers' y se ha incluido en el tslint.json la restricción para la revisión de código que marque estos errores.
+- Se ha revisado y mejorado la utilización de scopes en funciones, variables y definición de retornos tipados para facilitar la implementación de test y la revisión de posibles bugs.
+- Se ha eliminado la carpeta 'presentation' que no era necesaria en este caso práctico y podía dar lugar a equivocación y a la utilización de la carpeta 'share'. De esta manera, el módulo 'auth'y el módulo 'main' pasan a ser hijos directos del módulo 'app'.
+- Se han corregido algunos errores en el naming de algunos componentes, así como de las hojas de estilos, para estandarizar todo el naming de los componentes en inglés y la estandarización del sistema de nomenclatura SCSS BEM.
+- Se han eliminado constructores vacíos e implementaciones vacías de ngOnInit para la mejora de rendimiento en tiempos de carga de la aplicación.
+- Se ha implementado 'pre-loading' a la hora de cargar los módulos de forma 'lazy-load'.
+- Se ha añadido la librería 'ngx-translate' para incluir la posibilidad de hacer la web multidioma utilizando el método i18n para modificar el idioma de los textos literales de la aplicación a través de un selector de idioma añadido en la barra superior del componente 'main'.
+

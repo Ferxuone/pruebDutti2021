@@ -1,0 +1,47 @@
+{
+  "LOGIN_PAGE": {
+    "TITLE": "Log in",
+    "SUBTITLE": "Insert username and password for access",
+    "USERNAME": "Username",
+    "USERNAME_REQUIRED": "Username is required",
+    "PASSWORD": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "LOGIN": "Log in",
+    "UNREGISTERED": "Do you haven't account yet?",
+    "REGISTER": "Register",
+    "UNREGISTERED_USER": "Unregistered user"
+  },
+  "REGISTER_PAGE": {
+    "TITLE": "Register",
+    "FIRSTNAME": "Firstname",
+    "FIRSTNAME_REQUIRED": "Firstname is required",
+    "LASTNAME": "Lastname",
+    "LASTNAME_REQUIRED": "Lastname is required",
+    "USERNAME": "Username",
+    "USERNAME_REQUIRED": "Username is required",
+    "EMAIL": "Email",
+    "EMAIL_REQUIRED": "Email is required",
+    "REGISTER": "Register",
+    "CANCEL": "Cancel",
+    "REGISTERED_USER": "Registered user"
+  },
+  "MAIN_PAGE": {
+    "SHIPS": "Star-ships",
+    "PAGE_ONE": "Page one",
+    "PAGE_TWO": "Page two",
+    "LOGIN": "Log in"
+  },
+  "PAGINATION": {
+    "PREVIOUS": "Previous",
+    "NEXT": "Next"
+  },
+  "SHIP_MODAL": {
+    "MODEL": "Model",
+    "STARSHIP_CLASS": "Starchip class",
+    "CLOSE": "Close"
+  },
+  "LANGUAGES": {
+    "SPANISH": "Spanish",
+    "ENGLISH": "English"
+  }
+}

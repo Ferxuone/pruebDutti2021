@@ -1,0 +1,14 @@
+.main-header {
+    color: #fff;
+    background-color: #b99d6b;
+    margin-bottom: 30px;
+    .language-selector {
+        .language-selector--item {
+            cursor: pointer;
+        }
+        .language-selector--divider {
+            width: 1px;
+            background-color: #fff;
+        }
+    }
+}

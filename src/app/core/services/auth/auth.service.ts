@@ -7,10 +7,8 @@ import { Observable, of } from 'rxjs';
 })
 export class AuthService {
 
-  constructor() { }
-
   login(loginUser: LoginRequestModel): Observable<boolean> {
-    let usersList: UserModel[] = JSON.parse(localStorage.getItem('users'));
+    const usersList: UserModel[] = JSON.parse(localStorage.getItem('users'));
     if (usersList?.find(user => user.username === loginUser.username)) {
       localStorage.setItem('currentUser', loginUser.username);
       return of(true);
@@ -19,13 +17,13 @@ export class AuthService {
   }
 
   register(user: UserModel): Observable<boolean> {
-    let usersList: UserModel[] = JSON.parse(localStorage.getItem('users'));
+    const usersList: UserModel[] = JSON.parse(localStorage.getItem('users'));
     if (!usersList) {
       localStorage.setItem('users', JSON.stringify([user]));
       localStorage.setItem('currentUser', user.username); /* Autologin */
       return of(true);
     } else {
-      if(!usersList.find(u => u.username === user.username)) {
+      if (!usersList.find(u => u.username === user.username)) {
         usersList.push(user);
         localStorage.setItem('users', JSON.stringify(usersList));
         localStorage.setItem('currentUser', user.username); /* Autologin */

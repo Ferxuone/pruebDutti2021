@@ -1,0 +1,37 @@
+<pagination-controls
+  previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}"
+  nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+  (pageChange)="pageChanged($event)"
+  class="text-center"
+></pagination-controls>
+<div class="ship" *ngFor="let ships of (shipsPage$ | async).results | paginate: config; let i = index; trackBy: trackByName" (click)="openDetails(ships)">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ships.name}}</h3>
+    </div>
+    <div class="panel-body text-center color">
+        <img [src]="getStarshipImage(ships.url)" onError="this.src='assets/img/errorImg_x3.svg'" class="img-size">
+    </div>
+</div>
+
+<!-- Modal Details-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{titleDetails}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span>{{ 'SHIP_MODAL.MODEL' | translate }}: {{modelDetails}}</span><br>
+          <span>{{ 'SHIP_MODAL.STARSHIP_CLASS' | translate }}: {{starshipClass}}</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'SHIP_MODAL.CLOSE' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

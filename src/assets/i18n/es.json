@@ -1,0 +1,47 @@
+{
+  "LOGIN_PAGE": {
+    "TITLE": "Iniciar sesión",
+    "SUBTITLE": "Introduzca su correo y contraseña para acceder",
+    "USERNAME": "Nombre de usuario",
+    "USERNAME_REQUIRED": "Nombre de usuario requerido",
+    "PASSWORD": "Contraseña",
+    "PASSWORD_REQUIRED": "Contraseña requerida",
+    "LOGIN": "Iniciar sesión",
+    "UNREGISTERED": "¿Aún no tienes una cuenta?",
+    "REGISTER": "Regístrate",
+    "UNREGISTERED_USER": "Usuario no registrado"
+  },
+  "REGISTER_PAGE": {
+    "TITLE": "Registro",
+    "FIRSTNAME": "Nombre",
+    "FIRSTNAME_REQUIRED": "Nombre requerido",
+    "LASTNAME": "Apellido",
+    "LASTNAME_REQUIRED": "Apellido requerido",
+    "USERNAME": "Nombre de usuario",
+    "USERNAME_REQUIRED": "Nombre de usuario requerido",
+    "EMAIL": "Email",
+    "EMAIL_REQUIRED": "Email requerido",
+    "REGISTER": "Registrar",
+    "CANCEL": "Cancelar",
+    "REGISTERED_USER": "Usuario registrado"
+  },
+  "MAIN_PAGE": {
+    "SHIPS": "Naves",
+    "PAGE_ONE": "Página uno",
+    "PAGE_TWO": "Página dos",
+    "LOGIN": "Iniciar sesión"
+  },
+  "PAGINATION": {
+    "PREVIOUS": "Anterior",
+    "NEXT": "Siguiente"
+  },
+  "SHIP_MODAL": {
+    "MODEL": "Modelo",
+    "STARSHIP_CLASS": "Clase de nave",
+    "CLOSE": "Cerrar"
+  },
+  "LANGUAGES": {
+    "SPANISH": "Español",
+    "ENGLISH": "Inglés"
+  }
+}

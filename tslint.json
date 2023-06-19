@@ -63,6 +63,8 @@
       "timeEnd",
       "trace"
     ],
+    "no-magic-numbers": "off",
+    "@typescript-eslint/no-magic-numbers": "error",
     "no-empty": false,
     "no-inferrable-types": [
       true,

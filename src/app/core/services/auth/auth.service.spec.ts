@@ -5,7 +5,7 @@ import { LoginRequestModel, UserModel } from '../../models/auth.models';
 
 describe('AuthService', () => {
   let service: AuthService;
-  let usersList: UserModel[] = [
+  const usersList: UserModel[] = [
     {
       first_name: 'username',
       last_name: 'username',
@@ -23,12 +23,12 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  
+
   it('should be login success', () => {
     const loginRequest: LoginRequestModel = {username: 'username', password: '123qwe'};
     service.login(loginRequest).subscribe((result: boolean) => expect(result).toBeTrue());
   });
-  
+
   it('should be login error (not userList)', () => {
     localStorage.removeItem('users');
     const loginRequest: LoginRequestModel = {username: 'username', password: '123qwe'};

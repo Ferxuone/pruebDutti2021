@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark main-header">
+    <div class="dropdown">
+        <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown"></i>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" [routerLink]="'ships'">{{ 'MAIN_PAGE.SHIPS' | translate }}</a>
+            <a class="dropdown-item" [routerLink]="'pageOne'">{{ 'MAIN_PAGE.PAGE_ONE' | translate }}</a>
+            <a class="dropdown-item" [routerLink]="'pageTwo'">{{ 'MAIN_PAGE.PAGE_TWO' | translate }}</a>
+            <a class="dropdown-item" [routerLink]="'auth/login'">{{ 'MAIN_PAGE.LOGIN' | translate }}</a>
+        </div>
+    </div>
+    <div class="language-selector d-flex">
+        <span class="language-selector--item" [ngClass]="{'font-weight-bold': languageSelected === 'es'}" (click)="onChangeLanguage('es')">{{ 'LANGUAGES.SPANISH' | translate }}</span>
+        <div class="language-selector--divider mx-3"></div>
+        <span class="language-selector--item" [ngClass]="{'font-weight-bold': languageSelected === 'en'}" (click)="onChangeLanguage('en')">{{ 'LANGUAGES.ENGLISH' | translate }}</span>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
